@@ -7,10 +7,10 @@ import keystoneclient.v3.client as ksclient
 from keystoneauth1 import loading
 from keystoneauth1 import session
 
-flavor = "ssc.small" 
+flavor = "ssc.small"
 private_net = "SNIC 2017/13-45 Internal IPv4 Network"
 floating_ip_pool_name = None
-floating_ip = None
+floating_ip = "130.239.81.63"
 image_name = "Ubuntu 16.04 LTS (Xenial Xerus) - latest"
 
 loader = loading.get_plugin_loader('password')
@@ -58,3 +58,5 @@ while inst_status == 'BUILD':
     inst_status = instance.status
 
 print "Instance: "+ instance.name +" is in " + inst_status + "state"
+
+instance.add_floating_ip(floating_ip)
