@@ -12,4 +12,4 @@ runcmd:
  - sudo apt install -yq rabbitmq-server
  - sudo apt install -yq docker.io
  - git clone https://github.com/terrakz/acc-proj /home/ubuntu/acc-proj
-
+ - sudo /home/ubuntu/acc-proj/config_rabbitmq.sh
