@@ -3,14 +3,13 @@
 apt_update: true
 apt_upgrade: true
 packages:
- - python-pip
- - python-dev
  - build-essential
- - docker-ce
- - rabbimtmq-server
 byobu_default: system 
 
 runcmd:
+ - sudo apt install -yq python-dev
+ - sudo apt install -yq python-pip
+ - sudo apt install -yq rabbitmq-server
+ - sudo apt install -yq docker.io
  - git clone https://github.com/terrakz/acc-proj /home/ubuntu/acc-proj
- - sudo apt-add-repository ppa:octave/stable
- - sudo apt-get install octave
+
