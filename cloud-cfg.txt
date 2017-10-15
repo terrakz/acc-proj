@@ -6,9 +6,11 @@ packages:
  - python-pip
  - python-dev
  - build-essential
+ - docker-ce
+ - rabbimtmq-server
 byobu_default: system 
 
 runcmd:
+ - git clone https://github.com/terrakz/acc-proj /home/ubuntu/acc-proj
  - sudo apt-add-repository ppa:octave/stable
  - sudo apt-get install octave
- - git clone https://github.com/terrakz/acc-proj /home/ubuntu/acc-proj
