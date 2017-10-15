@@ -7,12 +7,17 @@ ADD requirements.txt /app/requirements.txt
 WORKDIR /app
 
 RUN apt-get update && apt-get install -yq less sudo octave && apt-get install -yq less python-pip && apt-get clean
-RUN pip install -r requirements.txt
+#RUN pip install -r requirements.txt
+#RUN pip install flask
+#RUN pip install jsonify
+RUN pip install celery
 
 #copy current dir to /app
 ADD . /app
 
-WORKDIR /app/BENCHOP
+#WORKDIR /app/BENCHOP
 
 # Run app.py when the container launches
-CMD ["octave", "quicktable.m"]
+#CMD ["octave", "quicktable.m"]
+
+ENTRYPOINT celery -A celery_part worker --app=celery_part.celery_app --concurrency=20 --loglevel=info
