@@ -14,7 +14,7 @@ celery = Celery('celery_part.celery', #app.name,
 
 @celery.task(bind=True)
 def run_table(self):
-    os.system('../BENCHOP/quicktable.m')
+    os.system('cd BENCHOP && octave quicktable.m')
 
 #@app.route('/task_pronoun_count', methods=['GET'])
 #def task_pronoun_count():
