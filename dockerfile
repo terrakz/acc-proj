@@ -9,4 +9,4 @@ RUN pip3 install oct2py
 ADD . /app
 
 WORKDIR /app
-ENTRYPOINT celery -A celery_part worker --app=celery_part.celery_app --concurrency=20 --loglevel=info
+ENTRYPOINT celery -A celery_part worker --app=celery_part.celery_app --loglevel=info

@@ -1,6 +1,6 @@
 import os
+#from oct2py import octave
 import oct2py
-
 #import json
 
 #from flask import Flask, jsonify
@@ -14,10 +14,23 @@ celery = Celery('celery_part.celery', #app.name,
                 broker= 'amqp://acc5:acc12345@130.239.81.83:5672/acc5_vhost', #app.config['CELERY_BROKER_URL'], 
                 backend='rpc://acc5:acc12345@130.239.81.83:5672/acc5_vhost') #app.config['CELERY_RESULT_BACKEND'])
 
-@celery.task(bind=True)
-def run_table(self):
-    oc = oct2py.Oct2Py()
-    return 123
+@celery.task()
+def run_table():
+    print(os.getcwd())
+    os.chdir('BENCHOP')
+    print(os.getcwd())
+    #return octave.feval('Problem1a', nout=2, verbose=True,timeout=36000)
+    octave = oct2py.Oct2Py()
+    return octave.feval('myfun', 1, 2, 3)
+    #return 123
+
+def run_problem1a():
+    print(os.getcwd())
+    os.chdir('BENCHOP')
+    print(os.getcwd())
+    return octave.feval('Problem1a')
+
+  
 
 #@app.route('/task_pronoun_count', methods=['GET'])
 #def task_pronoun_count():
