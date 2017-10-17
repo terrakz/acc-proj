@@ -1,7 +1,7 @@
 import os
-#from oct2py import octave
 import oct2py
-#import json
+import numpy as np
+import json
 
 #from flask import Flask, jsonify
 from celery import Celery
@@ -16,21 +16,22 @@ celery = Celery('celery_part.celery', #app.name,
 
 @celery.task()
 def run_table():
-    print(os.getcwd())
-    os.chdir('BENCHOP')
-    print(os.getcwd())
+    #print(os.getcwd())
+    #os.chdir('BENCHOP')
+    #print(os.getcwd())
     #return octave.feval('Problem1a', nout=2, verbose=True,timeout=36000)
-    octave = oct2py.Oct2Py()
+    #octave = oct2py.Oct2Py()
     #return octave.feval('myfun', 1, 2, 3)
-    return octave.feval('Problem1a')
+   # return octave.feval('Problem1a').tolist()
     #return 123
+    return run_problem1a()
 
 def run_problem1a():
     print(os.getcwd())
     os.chdir('BENCHOP')
     print(os.getcwd())
-    return octave.feval('Problem1a')
-
+    octave = oct2py.Oct2Py()
+    return json.dumps(octave.feval('Problem1a').tolist())
   
 
 #@app.route('/task_pronoun_count', methods=['GET'])
