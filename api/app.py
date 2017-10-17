@@ -5,13 +5,34 @@ import dockerMethods
 
 app = Flask(__name__, static_folder='static')
 
+#@app.route("/api/v1/result", methods=["GET"])
+#def index():
+#	return json.dumps(os.listdir('./results'))
+#	#result = tasks.getEmAll.delay()
+#	#result.wait()
+#	result = request.args.get('id', 'John doe')
+#	return jsonify(result)#str(tasks.getEmAll())#jsonify(make_response(result))
+#	return render_template('index.html', celery=result)
+
 @app.route("/api/v1/result", methods=["GET"])
 def index():
-	#result = tasks.getEmAll.delay()
-	#result.wait()
-	result = request.args.get('id', 'John doe')
-	return jsonify(result)#str(tasks.getEmAll())#jsonify(make_response(result))
-#	return render_template('index.html', celery=result)
+	print('enteringg index!')
+	result = []
+	key = request.args.get('id', 'invalid')
+	if key != 'invalid':
+		try:
+			with open("./results/" + key + ".txt") as f:
+				result = f.readlines()
+		except IOError:
+			return make_response("no such key: " + key)
+		result = [x.strip() for x in result]
+		return jsonify({'measurements': result})
+	else:
+		calculations = [x.split(".")[0] for x in os.listdir('./results')]
+		return jsonify(calculations)
+		#print(error")
+		#return ''
+
 
 @app.route("/api/v1/result", methods=["POST"])
 def create():
