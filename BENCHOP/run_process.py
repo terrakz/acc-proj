@@ -15,7 +15,7 @@ import json, requests, time, sys
 def run(problem, method):
 	oc = Oct2Py()
 	#x = oc.add(2, 2)
-	x = oc.qtable(problem, method)
+	x = oc.qtable2(problem, method)
 	return x
 
 
