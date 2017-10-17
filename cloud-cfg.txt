@@ -7,14 +7,14 @@ packages:
 byobu_default: system 
 
 runcmd:
- - sudo apt install -yq python-dev
- - sudo apt install -yq python-pip
+ - sudo apt install -yq python3
+ - sudo apt install -yq python3-pip
  - sudo apt install -yq rabbitmq-server
  - sudo apt install -yq docker.io
  - sudo apt install docker-compose
  - git clone https://github.com/terrakz/acc-proj /home/ubuntu/acc-proj
  - sudo /home/ubuntu/acc-proj/config_rabbitmq.sh
  - export LC_ALL=C
- - sudo pip install celery
+ - sudo pip3 install celery
  - sudo docker network create accproj_default
  - sudo echo "CLOUDINIT DONE!"

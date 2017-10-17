@@ -1,4 +1,7 @@
+sudo docker network create accproj_default
+
 #to start workers
+
 sudo docker-compose build
 
 sudo docker-compose scale worker=1 <num-workers>
@@ -6,4 +9,4 @@ sudo docker-compose scale worker=1 <num-workers>
 sudo docker-compose up/down
 
 #to trigger workers
-python -m celery_part.run_tasks
+python3 -m celery_part.run_tasks
