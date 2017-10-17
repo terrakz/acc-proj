@@ -21,7 +21,8 @@ def run_table():
     print(os.getcwd())
     #return octave.feval('Problem1a', nout=2, verbose=True,timeout=36000)
     octave = oct2py.Oct2Py()
-    return octave.feval('myfun', 1, 2, 3)
+    #return octave.feval('myfun', 1, 2, 3)
+    return octave.feval('Problem1a')
     #return 123
 
 def run_problem1a():
