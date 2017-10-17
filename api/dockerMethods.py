@@ -1,4 +1,4 @@
-import docker, uuid, json
+import docker, uuid, json, subprocess
 from os import listdir
 
 client = docker.from_env()
@@ -12,6 +12,7 @@ def run(data):
 	token = key if key else str(uuid.uuid4())
 	if key == '' and time == '':
 		print('creating docker service:', problem, method)
+		#subprocess.Popen(["docker"])
 	elif key != '' and time != '':
 		resultFile = open('./results/' + token + '.txt', 'a+')
 		json.dump(data, resultFile)
