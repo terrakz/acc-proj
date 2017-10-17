@@ -1,23 +1,8 @@
 # Use an official Python runtime as a parent image
-FROM python:2.7
-
-ADD requirements.txt /app/requirements.txt
-
-#set working dir to /app
-WORKDIR /app
-
-RUN apt-get update && apt-get install -yq less sudo octave && apt-get install -yq less python-pip && apt-get clean
-#RUN pip install -r requirements.txt
-#RUN pip install flask
-#RUN pip install jsonify
-RUN pip install celery
+FROM completeoctave
 
 #copy current dir to /app
 ADD . /app
 
-#WORKDIR /app/BENCHOP
-
-# Run app.py when the container launches
-#CMD ["octave", "quicktable.m"]
-
+WORKDIR /app
 ENTRYPOINT celery -A celery_part worker --app=celery_part.celery_app --concurrency=20 --loglevel=info
