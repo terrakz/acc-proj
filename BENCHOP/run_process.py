@@ -1,6 +1,6 @@
 #from oct2py import octave
 from oct2py import Oct2Py, get_log
-import numpy as np
+#import numpy as np
 import json, requests, time, sys
 
 #octave.addpath('/home/ubuntu/acc-proj/BENCHOP/')
@@ -14,7 +14,8 @@ import json, requests, time, sys
 #Oct2Py.feval('/home/ubuntu/acc-proj/BENCHOP/add.m', 1, 2)
 def run(problem, method):
 	oc = Oct2Py()
-	x = oc.add(2, 2)
+	#x = oc.add(2, 2)
+	x = oc.qtable(problem, method)
 	return x
 
 
@@ -35,7 +36,7 @@ if __name__ =="__main__":
 		try:
 			r = requests.post(api, data={'problem': problem, 'method': method, 'time': resultTime, 'result': result})
 		except requests.exceptions.RequestException as e:
-			print e
+			print (e)
 			sys.exit(1)
 		print(r.status_code, r.reason)
 	else:
