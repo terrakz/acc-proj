@@ -31,23 +31,23 @@ function y = qtable2(problem,method)
 
     warning off
 
-    Methods={'unused'};
+    Methods={'COS'};
 
     if problem == 1
         %% Problem 1 a) I
 
         display('Problem 1 a) I');
-        rootpath=pwd;
+        rootpath=pwd
         S=[90,100,110]; K=100; T=1.0; r=0.03; sig=0.15;
         U=[2.758443856146076 7.485087593912603 14.702019669720769];
 
         %filepathsBSeuCallUI=getfilenames('./','BSeuCallUI_*.m');
         if strcmp(method,'COS')
-            filepathsBSeuCallUI={['.\COS\BSeuCallUI_COS.m']};
+            filepathsBSeuCallUI={['./COS/BSeuCallUI_COS.m']};
         elseif strcmp(method,'RBFFD')
-            filepathsBSeuCallUI={['.\RBF-FD\BSeuCallUI_RBFFD']};
+            filepathsBSeuCallUI={['./RBF-FD/BSeuCallUI_RBFFD']};
         else
-            filepathsBSeuCallUI={['.\FD\BSeuCallUI_UniformGrid']};
+            filepathsBSeuCallUI={['./FD/BSeuCallUI_UniformGrid']};
         end
 
         par={S,K,T,r,sig};
@@ -79,11 +79,11 @@ U=[10.726486710094511 4.820608184813253 1.828207584020458];
 %filepathsBSamPutUI=getfilenames('./','BSamPutUI_*.m');
 
 if strcmp(method,'COS')
-    filepathsBSamPutUI={['.\COS\BSamPutUI_COS.m']};
+    filepathsBSamPutUI={['./COS/BSamPutUI_COS.m']};
 elseif strcmp(method,'RBFFD')
-    filepathsBSamPutUI={['.\RBF-FD\BSamPutUI_RBFFD']};
+    filepathsBSamPutUI={['./RBF-FD/BSamPutUI_RBFFD']};
 else
-    filepathsBSamPutUI={['.\FD\BSamPutUI_UniformGrid']};
+    filepathsBSamPutUI={['./FD/BSamPutUI_UniformGrid']};
 end
 
 par={S,K,T,r,sig};
@@ -114,11 +114,11 @@ U=[1.822512255945242 3.294086516281595 3.221591131246868];
 
 %filepathsBSupoutCallI=getfilenames('./','BSupoutCallI_*.m');
 if strcmp(method,'COS')
-    filepathsBSupoutCallI={['.\COS\BSupoutCallI_COS.m']};
+    filepathsBSupoutCallI={['./COS/BSupoutCallI_COS.m']};
 elseif strcmp(method,'RBFFD')
-    filepathsBSupoutCallI={['.\RBF-FD\BSupoutCallI_RBFFD']};
+    filepathsBSupoutCallI={['./RBF-FD/BSupoutCallI_RBFFD']};
 else
-    filepathsBSupoutCallI={['.\FD\BSupoutCallI_UniformGrid']};
+    filepathsBSupoutCallI={['./FD/BSupoutCallI_UniformGrid']};
 end
 
 par={S,K,T,r,sig,B};
@@ -150,11 +150,11 @@ U=[0.033913177006141   0.512978189232598   1.469203342553328];
 %filepathsBSeuCallUII=getfilenames('./','BSeuCallUII_*.m');
 
 if strcmp(method,'COS')
-    filepathsBSeuCallUII={['.\COS\BSeuCallUII_COS.m']};
+    filepathsBSeuCallUII={['./COS/BSeuCallUII_COS.m']};
 elseif strcmp(method,'RBFFD')
-    filepathsBSeuCallUII={['.\RBF-FD\BSeuCallUII_RBFFD']};
+    filepathsBSeuCallUII={['./RBF-FD/BSeuCallUII_RBFFD']};
 else
-    filepathsBSeuCallUII={['.\FD\BSeuCallUII_UniformGrid']};
+    filepathsBSeuCallUII={['./FD/BSeuCallUII_UniformGrid']};
 end
 
 par={S,K,T,r,sig};
@@ -186,11 +186,11 @@ U=[3.000000000000682 2.000000000010786   1.000000000010715];
 %filepathsBSamPutUII=getfilenames('./','BSamPutUII_*.m');
 
 if strcmp(method,'COS')
-    filepathsBSamPutUII={['.\COS\BSamPutUII_COS.m']};
+    filepathsBSamPutUII={['./COS/BSamPutUII_COS.m']};
 elseif strcmp(method,'RBFFD')
-    filepathsBSamPutUII={['.\RBF-FD\BSamPutUII_RBFFD']};
+    filepathsBSamPutUII={['./RBF-FD/BSamPutUII_RBFFD']};
 else
-    filepathsBSamPutUII={['.\FD\BSamPutUII_UniformGrid']};
+    filepathsBSamPutUII={['./FD/BSamPutUII_UniformGrid']};
 end
 
 par={S,K,T,r,sig};
@@ -222,11 +222,11 @@ U=[0.033913177006134   0.512978189232598   1.469203342553328];
 %filepathsBSupoutCallII=getfilenames('./','BSupoutCallII_*.m');
 
 if strcmp(method,'COS')
-    filepathsBSupoutCallII={['.\COS\BSupoutCallII_COS.m']};
+    filepathsBSupoutCallII={['./COS/BSupoutCallII_COS.m']};
 elseif strcmp(method,'RBFFD')
-    filepathsBSupoutCallII={['.\RBF-FD\BSupoutCallII_RBFFD']};
+    filepathsBSupoutCallII={['./RBF-FD/BSupoutCallII_RBFFD']};
 else
-    filepathsBSupoutCallII={['.\FD\BSupoutCallII_UniformGrid']};
+    filepathsBSupoutCallII={['./FD/BSupoutCallII_UniformGrid']};
 end
 
 par={S,K,T,r,sig,B};
