@@ -27,11 +27,14 @@ def run_table():
     return run_problem1a()
 
 def run_problem1a():
-    print(os.getcwd())
+    cwd = os.getcwd()
+    print(cwd)
     os.chdir('BENCHOP')
     print(os.getcwd())
     octave = oct2py.Oct2Py()
-    return json.dumps(octave.feval('Problem1a').tolist())
+    result = json.dumps(octave.feval('Problem1a').tolist())
+    os.chdir(cwd)
+    return result
   
 
 #@app.route('/task_pronoun_count', methods=['GET'])

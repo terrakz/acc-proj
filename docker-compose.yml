@@ -7,4 +7,3 @@ services:
             dockerfile: dockerfile
         volumes: 
             - .:/app
-        hostname: worker
