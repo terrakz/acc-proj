@@ -10,5 +10,5 @@ if __name__ == '__main__':
  
      # print (result.result)
 
-     result = group(run_problem.s(i) for i in range(1,10))()
+     result = group(run_problem.s(i) for i in range(1,4))()
      result.get(36000)
