@@ -22,10 +22,11 @@ if __name__ =="__main__":
 		resultTime = finished - start
 		print('running problem: ' + problem + ' method: ' + method + ' result: ' + str(result) + ' time: ' + str(resultTime) + ' target api: ' + api)
 		try:
-			r = requests.post(api, data={'problem': problem, 'method': method, 'time': resultTime, 'result': result, 'id': '7b1d5f1d-d293-46c3-8883-f809344663ad'})
+			#r = requests.post(api, data={'problem': problem, 'method': method, 'time': resultTime, 'result': result, 'id': '7b1d5f1d-d293-46c3-8883-f809344663ad'})
+			r = requests.post(api, data={{"id": "7b1d5f1d-d293-46c3-8883-f809344663ad", "method": "COS", "problem": 999, "result": 999, "time": 999}})
 		except requests.exceptions.RequestException as e:
 			print (e)
-			sys.exit(1)
+			sys.exit(13379)
 		print(r.status_code, r.reason)
 	else:
 		print('come on pass me 3 arguments! (problem, method, apiIP)')
