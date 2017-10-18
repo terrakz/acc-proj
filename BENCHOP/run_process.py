@@ -14,7 +14,7 @@ if __name__ =="__main__":
 	print(len(sys.argv))
 	if(len(sys.argv) == 4):
 		problem = sys.argv[1]
-		method = sys.argv[2] if sys.argv[2]
+		method = sys.argv[2]
 		api = sys.argv[3]
 		api = 'http://' + api + ':5000/api/v1/result'
 		result = run(problem, method)
