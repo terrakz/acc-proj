@@ -1,6 +1,6 @@
 import time
-from .celery_app import * #run_table 
 from celery import group
+from .celery_app import *
 
 if __name__ == '__main__':
      #result = run_table.apply_async()
@@ -10,5 +10,5 @@ if __name__ == '__main__':
  
      # print (result.result)
 
-     result = group(run_table(), run_table())
+     result = group(run_problem.s(i) for i in range(1,10))()
      result.get(36000)

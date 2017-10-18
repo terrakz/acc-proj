@@ -15,27 +15,30 @@ celery = Celery('celery_part.celery', #app.name,
                 backend='rpc://acc5:acc12345@130.239.81.83:5672/acc5_vhost') #app.config['CELERY_RESULT_BACKEND'])
 
 @celery.task()
-def run_table():
-    #print(os.getcwd())
-    #os.chdir('BENCHOP')
-    #print(os.getcwd())
-    #return octave.feval('Problem1a', nout=2, verbose=True,timeout=36000)
-    #octave = oct2py.Oct2Py()
-    #return octave.feval('myfun', 1, 2, 3)
-   # return octave.feval('Problem1a').tolist()
-    #return 123
-    return run_problem1a()
-
-def run_problem1a():
+def run_problem(index):
     cwd = os.getcwd()
     print(cwd)
     os.chdir('BENCHOP')
     print(os.getcwd())
     octave = oct2py.Oct2Py()
-    result = json.dumps(octave.feval('Problem1a').tolist())
+    result = None
+    if index == 1:
+       result = json.dumps(octave.feval('ProblemI1a').tolist())
+    elif index == 2:
+       result = json.dumps(octave.feval('ProblemI1b').tolist())
+    elif index == 3:
+       result = json.dumps(octave.feval('ProblemI1c').tolist())
+    elif index == 4:
+       result = json.dumps(octave.feval('ProblemII1a').tolist())
+    elif index == 5:
+       result = json.dumps(octave.feval('ProblemII1b').tolist())
+    elif index == 6:
+       result = json.dumps(octave.feval('ProblemII1c').tolist())
+    else:
+       None
     os.chdir(cwd)
     return result
-  
+
 
 #@app.route('/task_pronoun_count', methods=['GET'])
 #def task_pronoun_count():

@@ -23,7 +23,8 @@
 % ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 % POSSIBILITY OF SUCH DAMAGE.
 
-function [tBSeuCallUI, rBSeuCallUI] = Problem1a()
+function[tBSupoutCallII, rBSupoutCallII] = ProblemII1c()
+
 clear
 close all
 
@@ -39,33 +40,29 @@ Methods={'MC','MC-S','QMC-S','MLMC','MLMC-A',...
     'FD','FD-NU','FD-AD',...
     'RBF','RBF-FD','RBF-PUM','RBF-LSML','RBF-AD','RBF-MLT'};
 
-%% Problem 1 a) I
+%% Problem 1 c) II
 
-display('Problem 1 a) I');
+display('Problem 1 c) II');
 rootpath=pwd;
-S=[90,100,110]; K=100; T=1.0; r=0.03; sig=0.15;
-U=[2.758443856146076 7.485087593912603 14.702019669720769];
+S=[97,98,99]; sig=0.01; r=0.1; T=0.25; K=100; B=1.25*K;
+U=[0.033913177006134   0.512978189232598   1.469203342553328];
 
-filepathsBSeuCallUI=getfilenames('./','BSeuCallUI_*.m');
-par={S,K,T,r,sig};
-[timeBSeuCallUI,relerrBSeuCallUI] = executor(rootpath,filepathsBSeuCallUI,U,par)
+filepathsBSupoutCallII=getfilenames('./','BSupoutCallII_*.m');
+par={S,K,T,r,sig,B};
+[timeBSupoutCallII,relerrBSupoutCallII] = executor(rootpath,filepathsBSupoutCallII,U,par)
 
-tBSeuCallUI=NaN(numel(Methods),1); rBSeuCallUI=tBSeuCallUI;
+tBSupoutCallII=NaN(numel(Methods),1); rBSupoutCallII=NaN(numel(Methods),1);
 for ii=1:numel(Methods)
-    for jj=1:numel(filepathsBSeuCallUI)
-        a=filepathsBSeuCallUI{jj}(3:3+numel(Methods{ii}));
+    for jj=1:numel(filepathsBSupoutCallII)
+        a=filepathsBSupoutCallII{jj}(3:3+numel(Methods{ii}));
         b=[Methods{ii},'/'];
         if strcmp(a,b)
-            tBSeuCallUI(ii)=timeBSeuCallUI(jj);
-            rBSeuCallUI(ii)=relerrBSeuCallUI(jj);
+            tBSupoutCallII(ii)=timeBSupoutCallII(jj);
+            rBSupoutCallII(ii)=relerrBSupoutCallII(jj);
         end
     end
 end
 
 cd(rootpath);
 
-tBSeuCallUI, rBSeuCallUI
-
-end
-
-%Problem1a()
+tBSupoutCallII, rBSupoutCallII

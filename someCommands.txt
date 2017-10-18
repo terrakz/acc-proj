@@ -4,7 +4,7 @@ sudo docker network create accproj_default
 
 sudo docker-compose build
 
-sudo docker-compose scale worker=1 <num-workers>
+sudo docker-compose scale worker=6 <num-workers>
 
 sudo docker-compose up/down
 
